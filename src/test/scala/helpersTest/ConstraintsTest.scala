@@ -38,5 +38,19 @@ class ConstraintsTest extends FunSuite {
   }
 
 
+  test("WHEN number is passed as a string THEN method should return integer"){
+    val arg = "1"
+    val actualResult = constraints.convertToInt(arg)
+    val expectedResult = 1
+    assert(actualResult == expectedResult)
+  }
+
+  test("WHEN number isn't passed as a string THEN method should return Failure"){
+    val arg = "1,000,000.56"
+    intercept[NumberFormatException]{
+      constraints.convertToInt(arg)
+    }
+  }
+
 
 }
