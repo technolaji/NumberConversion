@@ -4,6 +4,7 @@ class Units {
 
   def get(x: Int) : String = {
     x match {
+      case 0 => ""
       case 1 => "one"
       case 2 => "two"
       case 3 => "three"
@@ -17,7 +18,4 @@ class Units {
     }
 
   }
-
-
-
 }
