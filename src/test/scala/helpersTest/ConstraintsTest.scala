@@ -17,22 +17,18 @@ class ConstraintsTest extends FunSuite {
     assert(actualResult == expectedResult)
   }
 
-  test("WHEN number isn't passed as a string THEN method should return Failure") {
+  test("WHEN number isn't passed as a string THEN method should return Exception") {
     val arg = "1,000,000.56"
     intercept[NumberFormatException] {
       constraints.convertToInt(arg)
     }
   }
-
   test("WHEN number is greater than 999,999,999 THEN method should return false "){
     val arg = 1000000000
     val actualResult = constraints.isLessThanOneBillion(arg)
     val expectedResult = false
     assert(actualResult == expectedResult)
   }
-
-
-
 
 
 }
