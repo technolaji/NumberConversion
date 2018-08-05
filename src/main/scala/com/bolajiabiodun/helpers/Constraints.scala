@@ -4,15 +4,20 @@ import scala.util.{Failure, Success, Try}
 
 class Constraints(){
 
-  def isNumber(x: Any ) : Boolean = {
-    x.isInstanceOf[Integer]
+
+  def checkAssumptions(x: String): AnyVal = {
+
+    val number = convertToInt(x)
+    isLessThanOneBillion(number)
   }
 
-  def isLessThanOneBillion(x:Int) : Boolean = {
-    x < 1000000000
+  def isLessThanOneBillion(x:Int) : AnyVal = {
+    if (x < 1000000000) {
+      x
+    }
   }
 
-  def convertToInt(x: String): Any = {
+  def convertToInt(x: String): Int = {
     Try(x.toInt) match {
       case Success(value) => value
       case Failure(exception) => throw exception

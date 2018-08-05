@@ -9,25 +9,19 @@ class ConstraintsTest extends FunSuite {
   val constraints = new Constraints
 
 
-  test("WHEN argument is a number THEN method should return true"){
-    val arg = 4
-    val actualResult = constraints.isNumber(arg)
-    val expectedResult = true
+
+  test("WHEN number is passed as a string THEN method should return integer"){
+    val arg = "1"
+    val actualResult = constraints.convertToInt(arg)
+    val expectedResult = 1
     assert(actualResult == expectedResult)
   }
 
-  test("WHEN argument is a character THEN method should return false "){
-    val arg = "testArg"
-    val actualResult = constraints.isNumber(arg)
-    val expectedResult = false
-    assert(actualResult == expectedResult)
-  }
-
-  test("WHEN argument contains decimals THEN method should return false "){
-    val arg = 3.5
-    val actualResult = constraints.isNumber(arg)
-    val expectedResult = false
-    assert(actualResult == expectedResult)
+  test("WHEN number isn't passed as a string THEN method should return Failure") {
+    val arg = "1,000,000.56"
+    intercept[NumberFormatException] {
+      constraints.convertToInt(arg)
+    }
   }
 
   test("WHEN number is greater than 999,999,999 THEN method should return false "){
@@ -38,19 +32,7 @@ class ConstraintsTest extends FunSuite {
   }
 
 
-  test("WHEN number is passed as a string THEN method should return integer"){
-    val arg = "1"
-    val actualResult = constraints.convertToInt(arg)
-    val expectedResult = 1
-    assert(actualResult == expectedResult)
-  }
 
-  test("WHEN number isn't passed as a string THEN method should return Failure"){
-    val arg = "1,000,000.56"
-    intercept[NumberFormatException]{
-      constraints.convertToInt(arg)
-    }
-  }
 
 
 }
