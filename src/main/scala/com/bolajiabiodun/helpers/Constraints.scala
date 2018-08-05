@@ -5,16 +5,14 @@ import scala.util.{Failure, Success, Try}
 class Constraints(){
 
 
-  def checkAssumptions(x: String): AnyVal = {
+  def checkAssumptions(x: String): Int = {
 
     val number = convertToInt(x)
     isLessThanOneBillion(number)
   }
 
-  def isLessThanOneBillion(x:Int) : AnyVal = {
-    if (x < 1000000000) {
-      x
-    }
+  def isLessThanOneBillion(x:Int) : Int = {
+    if (x < 1000000000) x else 0
   }
 
   def convertToInt(x: String): Int = {
