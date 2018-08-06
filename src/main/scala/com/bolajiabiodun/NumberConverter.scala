@@ -16,9 +16,13 @@ object NumberConverter extends App {
 
     val units = new Units
     val tens = new Tens
+    val hundreds = new Hundreds
 
-    if(numberOfDigits == 2) print(tens.get(number)) else print(units.get(number))
-
+    numberOfDigits match {
+      case 3 => print(hundreds.get(number))
+      case 2 => print(tens.get(number))
+      case 1 => print(units.get(number))
+    }
   }
 
 
