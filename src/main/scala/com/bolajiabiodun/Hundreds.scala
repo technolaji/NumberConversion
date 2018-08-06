@@ -7,7 +7,12 @@ class Hundreds {
 
   def get(x: Int): String ={
 
-    x match {
+
+    if (x <100) {
+      tens.get(x)
+    }
+    else x match {
+
       case 100 => s"${units.get(x/100)} hundred ${tens.get(x%100)}"
       case _ => s"${units.get(x/100)} hundred and ${tens.get(x%100)}"
     }
