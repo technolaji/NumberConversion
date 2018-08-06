@@ -46,5 +46,4 @@ class MillionsTest extends FunSuite{
     val expectedResult = "nine hundred and ninety nine million nine hundred and ninety nine thousand nine hundred and ninety nine"
     assert(actualResult == expectedResult)
   }
-
 }

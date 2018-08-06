@@ -2,7 +2,7 @@ package com.bolajiabiodun
 
 class Units {
 
-  def get(x: Int) : String = {
+  def getWords(x: Int) : String = {
     x match {
       case 0 => ""
       case 1 => "one"

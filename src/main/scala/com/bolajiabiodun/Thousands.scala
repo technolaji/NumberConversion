@@ -13,13 +13,13 @@ class Thousands {
     }
     else if (x > 1000)
       s"${getWords(x / 1000)} thousand and " +
-        s"${tens.get(x % 1000)}"
+        s"${tens.getWords(x % 1000)}"
 
     else if (x == 1000){
-      s"${getWords(x / 1000)} thousand ${tens.get(x % 1000)}"
+      s"${getWords(x / 1000)} thousand ${tens.getWords(x % 1000)}"
     }
     else
-      hundreds.get(x)
+      hundreds.getWords(x)
   }
 
 }
