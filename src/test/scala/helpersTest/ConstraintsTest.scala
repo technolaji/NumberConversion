@@ -23,12 +23,11 @@ class ConstraintsTest extends FunSuite {
       constraints.convertToInt(arg)
     }
   }
-  test("WHEN number is greater than 999,999,999 THEN method should return false "){
-    val arg = 1000000000
-    val actualResult = constraints.isLessThanOneBillion(arg)
-    val expectedResult = false
-    assert(actualResult == expectedResult)
+  test("WHEN number is greater than 999,999,999 THEN method should throw Exception "){
+    val arg = "1000000000"
+    intercept[NumberFormatException] {
+      constraints.convertToInt(arg)
+    }
   }
-
 
 }

@@ -9,7 +9,7 @@ class UnitsTest extends FunSuite {
   test("WHEN input is 6 THEN function should return six") {
 
     val input = 6
-    val actualResult = units.get(input)
+    val actualResult = units.getWords(input)
     val expectedResult = "six"
     assert(actualResult == expectedResult)
   }

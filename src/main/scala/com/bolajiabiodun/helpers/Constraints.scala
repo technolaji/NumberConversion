@@ -6,7 +6,6 @@ class Constraints(){
 
 
   def checkAssumptions(x: String): Int = {
-
     val number = convertToInt(x)
     isLessThanOneBillion(number)
   }
