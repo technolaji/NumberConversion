@@ -5,7 +5,10 @@ class Tens {
   val units = new Units
 
   def get(x: Int): String = {
-    if (x >= 20)
+    if(x<10){
+      units.get(x)
+    }
+    else if (x >= 20)
       x / 10 match {
         case 2 => s"twenty ${units.get(x%10)}"
         case 3 => s"thirty ${units.get(x%10)}"
