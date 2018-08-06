@@ -12,7 +12,6 @@ class UnitsTest extends FunSuite {
     val actualResult = units.get(input)
     val expectedResult = "six"
     assert(actualResult == expectedResult)
-
   }
 
 

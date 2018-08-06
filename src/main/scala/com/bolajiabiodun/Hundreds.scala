@@ -3,22 +3,18 @@ package com.bolajiabiodun
 class Hundreds {
 
   val tens = new Tens
-  val units = new Units
 
-  def get(x: Int): String ={
+  def get(x: Int): String = {
 
-
-    if (x <100) {
+    if (x > 100) {
+      s"${get(x / 100)} hundred and ${tens.get(x % 100)}"
+    }
+    else if (x == 100) {
+      s"${get(x / 100)} hundred ${tens.get(x % 100)}"
+    }
+    else {
       tens.get(x)
     }
-    else x match {
-
-      case 100 => s"${units.get(x/100)} hundred ${tens.get(x%100)}"
-      case _ => s"${units.get(x/100)} hundred and ${tens.get(x%100)}"
-    }
-
 
   }
-
-
 }
